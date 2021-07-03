@@ -1,4 +1,4 @@
-module github.com/RivenZoo/blevejieba
+module github.com/dearchun/blevejieba
 
 require (
 	github.com/RoaringBitmap/roaring v0.4.21 // indirect
