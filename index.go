@@ -89,6 +89,18 @@ func NewMemIndexWithGoJieba(opt *Options) (bleve.Index, error) {
 	return index, nil
 }
 
+func NewIndexWithGoJieba(indexName string, opt *Options) (bleve.Index, error) {
+	mappingImpl, err := NewGoJiebaIndexMapping(opt)
+	if err != nil {
+		return nil, err
+	}
+	index, err := bleve.New(indexName, mappingImpl)
+	if err != nil {
+		return nil, err
+	}
+	return index, nil
+}
+
 func NewGoJiebaIndexMapping(opt *Options) (mapping.IndexMapping, error) {
 	indexMapping := bleve.NewIndexMapping()
 	err := indexMapping.AddCustomTokenizer(Name,
