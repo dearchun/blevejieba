@@ -101,7 +101,7 @@ func NewIndexWithGoJieba(indexName string, opt *Options) (bleve.Index, error) {
 	return index, nil
 }
 
-func NewGoJiebaIndexMapping(opt *Options) (mapping.IndexMapping, error) {
+func NewGoJiebaIndexMapping(opt *Options) (*mapping.IndexMappingImpl, error) {
 	indexMapping := bleve.NewIndexMapping()
 	err := indexMapping.AddCustomTokenizer(Name,
 		opt.customTokenizerConfig(),
